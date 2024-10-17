@@ -7,6 +7,7 @@ import path from 'path';
 
 import { swaggerDocs } from "./swagger";
 import { userRoutes } from "./src/01 - Application/Routes/UserRoutes";
+import { authRoutes } from "./src/01 - Application/Routes/AuthRoutes";
 import { UserModel } from "./src/04 - Infrastructure/4.1 - Data/Models/UserModel";
 
 const appsettingsPath = path.resolve(__dirname, 'appsettings.json');
@@ -30,6 +31,7 @@ sequelize.sync().then(() => {
     console.log("Banco de dados sincronizado.");
 });
 
+app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 
 const port = appsettings.port || 3000;

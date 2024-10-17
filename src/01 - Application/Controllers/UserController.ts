@@ -6,7 +6,7 @@ import { UserRepository } from "../../04 - Infrastructure/4.1 - Data/Repository/
  * @swagger
  * tags:
  *   name: Usuários
- *   description: API de gerenciamento de usuários
+ *   description: Endpoints relacionados aos usuários
  */
 export class UserController 
 {
