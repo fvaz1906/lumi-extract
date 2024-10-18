@@ -1,40 +1,62 @@
 import { User } from "../02 - Domain/Entities/User";
+import { UserProfile } from "../02 - Domain/Entities/UserProfile";
 import { IUserRepository } from "../02 - Domain/Interfaces/IUserRepository";
-import { PasswordHasher } from "../04 - Infrastructure/4.2 - CrossCutting/Security/PasswordHasher ";
+import { IUserProfileRepository } from "../02 - Domain/Interfaces/IUserProfileRepository";
+import { PasswordHasher } from "../04 - Infrastructure/4.2 - CrossCutting/Security/PasswordHasher";
 
 export class UserService 
 {
 
     private userRepository: IUserRepository;
+    private userProfileRepository: IUserProfileRepository;
 
-    constructor(userRepository: IUserRepository) 
+    constructor(
+        userRepository: IUserRepository,
+        userProfileRepository: IUserProfileRepository
+    ) 
     {
         this.userRepository = userRepository;
+        this.userProfileRepository = userProfileRepository;
     }
 
-    public async listUsers(): Promise<User[]> 
+    public async findAll(): Promise<User[]> 
     {
         return this.userRepository.findAll();
     }
   
-    public async findUserById(id: string): Promise<User | null> 
+    public async findById(id: string): Promise<User | null> 
     {
         return this.userRepository.findById(id);
     }
   
-    public async createUser(data: { name: string, email: string, password: string, enabled: boolean }): Promise<User> 
+    public async save(data: { name: string, email: string, password: string, enabled: boolean }): Promise<User> 
     {
+        const existingUser = await this.userRepository.findByEmail(data.email);
+        if (existingUser) 
+        {
+            throw new Error('EMAIL_EXISTS'); // Lança um erro se o e-mail já existir
+        }
+
+        // Hasheia a senha
         const hashedPassword = await PasswordHasher.hashPassword(data.password);
 
-        const user = new User({
+        // Cria o novo usuário
+        const user = await this.userRepository.save(new User({
             ...data,
             password: hashedPassword,
+        }));
+
+        const userProfile = new UserProfile({
+            userId: user.id!,
+            profileId: 2
         });
 
-        return this.userRepository.save(user);
+        await this.userProfileRepository.save(userProfile);
+
+        return user;
     }
   
-    public async updateUser(id: string, data: { name?: string, email?: string, password?: string, enabled?: boolean }): Promise<User | null> 
+    public async update(id: string, data: { name?: string, email?: string, password?: string, enabled?: boolean }): Promise<User | null> 
     {
         const user = await this.userRepository.findById(id);
         if (!user) 
@@ -56,7 +78,7 @@ export class UserService
         return this.userRepository.update(user);
     }
   
-    public async deleteUser(id: string): Promise<boolean> 
+    public async delete(id: string): Promise<boolean> 
     {
         const user = await this.userRepository.findById(id);
         if (!user) 

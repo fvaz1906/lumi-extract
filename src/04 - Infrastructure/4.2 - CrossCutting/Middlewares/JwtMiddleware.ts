@@ -1,28 +1,45 @@
 import { Request, Response, NextFunction } from 'express';
 import { JwtToken } from '../Security/JwtToken';
+import { JwtPayload } from 'jsonwebtoken';
 
-export const JwtMiddleware = (req: Request, res: Response, next: NextFunction): void => 
+// Middleware JWT com verificação de permissões
+export const JwtMiddleware = (requiredPermissions: string[] = []) => 
 {
-    const authHeader = req.headers.authorization;
-
-    if (!authHeader) 
+    return (req: Request, res: Response, next: NextFunction): void => 
     {
-        // Retorna uma resposta ao cliente, interrompendo o fluxo
-        res.status(401).json({ message: 'Token não fornecido.' });
-        return; // Garante que o tipo de retorno seja `void`
-    }
+        const authHeader = req.headers.authorization;
 
-    const token = authHeader.split(' ')[1]; // O token JWT geralmente é enviado no formato "Bearer <token>"
+        if (!authHeader) 
+        {
+            res.status(401).json({ message: 'Token não fornecido.' });
+            return;
+        }
 
-    const decoded = JwtToken.verifyToken(token);
+        const token = authHeader.split(' ')[1];
+        const decoded = JwtToken.verifyToken(token);
 
-    if (!decoded) 
-    {
-        // Retorna uma resposta ao cliente, interrompendo o fluxo
-        res.status(403).json({ message: 'Token inválido ou expirado.' });
-        return; // Garante que o tipo de retorno seja `void`
-    }
+        if (!decoded || typeof decoded === 'string') 
+        {
+            res.status(403).json({ message: 'Token inválido ou expirado.' });
+            return;
+        }
 
-    // Se o token for válido, prossegue para o próximo middleware ou controlador
-    next(); // Aqui o retorno é `void`, conforme esperado pelo Express
+        // Armazena o usuário no objeto `req.user`
+        req.user = decoded as JwtPayload;
+
+        // Verifica as permissões do usuário
+        const userPermissions = (decoded as JwtPayload).permission || [];
+        const hasPermission = requiredPermissions.every(permission =>
+            userPermissions.includes(permission)
+        );
+
+        if (!hasPermission) 
+        {
+            res.status(403).json({ message: 'Acesso negado: Permissões insuficientes.' });
+            return;
+        }
+
+        // Se o token for válido e as permissões forem suficientes, continua
+        next();
+    };
 };

@@ -7,9 +7,9 @@ const options =
     definition: {
         openapi: '3.0.0',
         info: {
-            title: 'API de Usuários',
+            title: 'API Lumi-Extract',
             version: '1.0.0',
-            description: 'Documentação da API de Usuários usando Swagger. Acesse o [swagger.json](http://localhost:3000/swagger.json) para exportar.',
+            description: 'Documentação da API Lumi-Extract usando Swagger. Acesse o [swagger.json](http://localhost:3000/swagger.json) para exportar.',
         },
         servers: [
             {

@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { UserService } from "../../03 - Service/UserService";
+import { UserProfileRepository } from "../../04 - Infrastructure/4.1 - Data/Repository/UserProfileRepository";
 import { UserRepository } from "../../04 - Infrastructure/4.1 - Data/Repository/UserRepository";
 
 /**
@@ -16,55 +17,13 @@ export class UserController
     constructor() 
     {
         const userRepository = new UserRepository();
-        this.userService = new UserService(userRepository);
+        const userProfileRepository = new UserProfileRepository();
+        this.userService = new UserService(userRepository, userProfileRepository);
     }
-  
+
     /**
      * @swagger
-     * /usuarios:
-     *   post:
-     *     summary: Cria um novo usuário
-     *     tags: [Usuários]
-     *     requestBody:
-     *       required: true
-     *       content:
-     *         application/json:
-     *           schema:
-     *             type: object
-     *             required:
-     *               - name
-     *               - email
-     *               - password
-     *             properties:
-     *               name:
-     *                 type: string
-     *               email:
-     *                 type: string
-     *               password:
-     *                 type: string
-     *     responses:
-     *       201:
-     *         description: Usuário criado com sucesso
-     *       400:
-     *         description: Erro ao criar usuário
-     */
-    public async criarUsuario(req: Request, res: Response, next: NextFunction): Promise<void> 
-    {
-        try 
-        {
-            const { name, email, password, enabled } = req.body;
-            const usuario = await this.userService.createUser({ name, email, password, enabled });
-            res.status(201).json(usuario);
-        } 
-        catch (error) 
-        {
-            next(error);
-        }
-    }
-  
-    /**
-     * @swagger
-     * /usuarios:
+     * /user:
      *   get:
      *     summary: Lista todos os usuários
      *     tags: [Usuários]
@@ -85,11 +44,11 @@ export class UserController
      *                   email:
      *                     type: string
      */
-    public async listarUsuarios(req: Request, res: Response, next: NextFunction): Promise<void> 
+    public async findAll(req: Request, res: Response, next: NextFunction): Promise<void> 
     {
         try 
         {
-            const usuarios = await this.userService.listUsers();
+            const usuarios = await this.userService.findAll();
             res.status(200).json(usuarios);
         } 
         catch (error) 
@@ -97,10 +56,10 @@ export class UserController
             next(error);
         }
     }
-  
+
     /**
      * @swagger
-     * /usuarios/{id}:
+     * /user/{id}:
      *   get:
      *     summary: Obtém um usuário pelo ID
      *     tags: [Usuários]
@@ -128,12 +87,12 @@ export class UserController
      *       404:
      *         description: Usuário não encontrado
      */
-    public async buscarUsuarioPorId(req: Request, res: Response, next: NextFunction): Promise<void> 
+    public async findById(req: Request, res: Response, next: NextFunction): Promise<void> 
     {
         try 
         {
             const { id } = req.params;
-            const usuario = await this.userService.findUserById(id);
+            const usuario = await this.userService.findById(id);
             
             if (!usuario) 
             {
@@ -152,7 +111,57 @@ export class UserController
   
     /**
      * @swagger
-     * /usuarios/{id}:
+     * /user:
+     *   post:
+     *     summary: Cria um novo usuário
+     *     tags: [Usuários]
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             type: object
+     *             required:
+     *               - name
+     *               - email
+     *               - password
+     *             properties:
+     *               name:
+     *                 type: string
+     *               email:
+     *                 type: string
+     *               password:
+     *                 type: string
+     *     responses:
+     *       201:
+     *         description: Usuário criado com sucesso
+     *       400:
+     *         description: Erro ao criar usuário
+     */
+    public async save(req: Request, res: Response, next: NextFunction): Promise<void> 
+    {
+        try 
+        {
+            const { name, email, password, enabled } = req.body;
+            const usuario = await this.userService.save({ name, email, password, enabled });
+            res.status(201).json(usuario);
+        } 
+        catch (error: any) 
+        {
+            if (error.message === 'EMAIL_EXISTS') 
+            {
+                res.status(409).json({ message: 'E-mail já está em uso.' }); // HTTP 409: Conflict
+            } 
+            else 
+            {
+                next(error); // Encaminha para o próximo middleware de erro
+            }
+        }
+    }
+  
+    /**
+     * @swagger
+     * /user/{id}:
      *   put:
      *     summary: Atualiza um usuário pelo ID
      *     tags: [Usuários]
@@ -182,13 +191,13 @@ export class UserController
      *       404:
      *         description: Usuário não encontrado
      */
-    public async atualizarUsuario(req: Request, res: Response, next: NextFunction): Promise<void> 
+    public async update(req: Request, res: Response, next: NextFunction): Promise<void> 
     {
         try 
         {
             const { id } = req.params;
             const { name, email, password, enabled } = req.body;
-            const usuarioAtualizado = await this.userService.updateUser(id, { name, email, password, enabled });
+            const usuarioAtualizado = await this.userService.update(id, { name, email, password, enabled });
 
             if (!usuarioAtualizado) 
             {
@@ -208,7 +217,7 @@ export class UserController
   
     /**
      * @swagger
-     * /usuarios/{id}:
+     * /user/{id}:
      *   delete:
      *     summary: Remove um usuário pelo ID
      *     tags: [Usuários]
@@ -225,12 +234,12 @@ export class UserController
      *       404:
      *         description: Usuário não encontrado
      */
-    public async deletarUsuario(req: Request, res: Response, next: NextFunction): Promise<void> 
+    public async delete(req: Request, res: Response, next: NextFunction): Promise<void> 
     {
         try 
         {
             const { id } = req.params;
-            const deletado = await this.userService.deleteUser(id);
+            const deletado = await this.userService.delete(id);
 
             if (!deletado) {
                 res.status(404).json({ message: 'Usuário não encontrado' });

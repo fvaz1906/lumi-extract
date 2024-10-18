@@ -1,0 +1,23 @@
+{
+    "development": {
+        "dialect": "postgres",
+        "host": "pgsql.oovaz.com.br",
+        "username": "oovaz",
+        "password": "P@ssw0rd",
+        "database": "oovaz"
+    },
+    "test": {
+        "dialect": "postgres",
+        "host": "pgsql.oovaz.com.br",
+        "username": "oovaz",
+        "password": "P@ssw0rd",
+        "database": "oovaz"
+    },
+    "production": {
+        "dialect": "postgres",
+        "host": "pgsql.oovaz.com.br",
+        "username": "oovaz",
+        "password": "P@ssw0rd",
+        "database": "oovaz"
+    }
+}

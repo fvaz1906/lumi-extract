@@ -1,34 +1,21 @@
 import { Model, Table, Column, DataType } from "sequelize-typescript";
 
-@Table({ tableName: "users", timestamps: true })
-export class UserModel extends Model 
-{
+@Table({ tableName: "profiles", timestamps: true })
+export class ProfileModel extends Model {
     
-    @Column({
-        type: DataType.STRING,
-        allowNull: true,
-    })
-    name!: string;
-
     @Column({
         type: DataType.STRING,
         allowNull: false,
         unique: true,
     })
-    email!: string;
+    role!: string;
 
     @Column({
-        type: DataType.STRING,
-        allowNull: false,
+        type: DataType.JSON,
+        allowNull: true,
+        defaultValue: [],
     })
-    password!: string;
-
-    @Column({
-        type: DataType.BOOLEAN,
-        allowNull: false,
-        defaultValue: true,
-    })
-    enabled!: boolean;
+    permissions!: string[];
 
     @Column({
         type: DataType.DATE,
@@ -43,5 +30,4 @@ export class UserModel extends Model
         defaultValue: DataType.NOW,
     })
     updatedAt!: Date;
-    
 }

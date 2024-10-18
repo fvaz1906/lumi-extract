@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
-import { UserService } from '../../03 - Service/UserService';
-import { JwtToken } from '../../04 - Infrastructure/4.2 - CrossCutting/Security/JwtToken';
 import { AuthService } from '../../03 - Service/AuthService';
+import { UserRepository } from '../../04 - Infrastructure/4.1 - Data/Repository/UserRepository';
+import { UserProfileRepository } from '../../04 - Infrastructure/4.1 - Data/Repository/UserProfileRepository';
+import { ProfileRepository } from '../../04 - Infrastructure/4.1 - Data/Repository/ProfileRepository';
 
 /**
  * @swagger
@@ -12,10 +13,14 @@ import { AuthService } from '../../03 - Service/AuthService';
 export class AuthController 
 {
 
-    private _authService: AuthService;
+    private authService: AuthService;
 
-    constructor(authService: AuthService) {
-        this._authService = authService;
+    constructor() 
+    {
+        const userRepository = new UserRepository();
+        const userProfileRepository = new UserProfileRepository();
+        const profileRepository = new ProfileRepository();
+        this.authService = new AuthService(userRepository, userProfileRepository, profileRepository);
     }
 
     /**
@@ -58,10 +63,16 @@ export class AuthController
         {
 
             const { email, password } = req.body;
-            const token = await this._authService.login(email, password);
+            const result = await this.authService.login(email, password);
 
-            // Retorna o token ao cliente
-            res.status(200).json({ token });
+            if (result) 
+            {
+                res.status(200).json(result);
+            } 
+            else 
+            {
+                res.status(401).json({ message: 'Credenciais inválidas.' });
+            }
             
         } 
         catch (error) 

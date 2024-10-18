@@ -8,7 +8,9 @@
     "scripts": {
         "build": "tsc",
         "start": "node server.js",
-        "dev": "ts-node-dev --respawn --transpile-only server.ts"
+        "dev": "ts-node-dev --respawn --transpile-only server.ts",
+        "db:migrate": "ts-node ./node_modules/.bin/sequelize-cli db:migrate",
+        "db:seed": "ts-node ./node_modules/.bin/sequelize-cli db:seed:all"
     },
     "keywords": [],
     "author": "",
