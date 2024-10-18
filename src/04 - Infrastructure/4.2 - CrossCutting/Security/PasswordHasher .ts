@@ -1,9 +1,11 @@
-import bcrypt from 'bcrypt';
+import crypto from 'crypto';
 
 export class PasswordHasher 
 {
-
-    private static saltRounds = 10;
+    private static saltLength = 16;
+    private static iterations = 100000;
+    private static keylen = 64;
+    private static digest = 'sha512';
 
     /**
      * Gera um hash a partir da senha fornecida
@@ -12,7 +14,13 @@ export class PasswordHasher
      */
     public static async hashPassword(password: string): Promise<string> 
     {
-        return await bcrypt.hash(password, this.saltRounds);
+        const salt = crypto.randomBytes(this.saltLength).toString('hex');
+        return new Promise((resolve, reject) => {
+            crypto.pbkdf2(password, salt, this.iterations, this.keylen, this.digest, (err, derivedKey) => {
+                if (err) reject(err);
+                resolve(`${salt}:${derivedKey.toString('hex')}`);
+            });
+        });
     }
 
     /**
@@ -23,7 +31,12 @@ export class PasswordHasher
      */
     public static async comparePassword(password: string, hashedPassword: string): Promise<boolean> 
     {
-        return await bcrypt.compare(password, hashedPassword);
+        const [salt, key] = hashedPassword.split(':');
+        return new Promise((resolve, reject) => {
+            crypto.pbkdf2(password, salt, this.iterations, this.keylen, this.digest, (err, derivedKey) => {
+                if (err) reject(err);
+                resolve(key === derivedKey.toString('hex'));
+            });
+        });
     }
-
 }
