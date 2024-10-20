@@ -3,10 +3,14 @@ import { UserController } from "../Controllers/UserController";
 import { UserProfileController } from "../Controllers/UserProfileController";
 import { ProfileController } from "../Controllers/ProfileController";
 import { JwtMiddleware } from "../../04 - Infrastructure/4.2 - CrossCutting/Middlewares/JwtMiddleware";
+import { UploadController, upload } from "../Controllers/UploadController";
+import { InstallationController } from "../Controllers/InstallationController";
 
 const userController = new UserController();
 const userProfileController = new UserProfileController();
 const profileController = new ProfileController();
+const uploadController = new UploadController();
+const installationController = new InstallationController();
 
 const router = Router();
 
@@ -30,5 +34,14 @@ router.get('/profile/:id', JwtMiddleware(['read']), profileController.findById.b
 router.post('/profile', JwtMiddleware(['create']), profileController.save.bind(profileController));
 router.put('/profile/:id', JwtMiddleware(['update']), profileController.update.bind(profileController));
 router.delete('/profile/:id', JwtMiddleware(['delete']), profileController.delete.bind(profileController));
+
+// upload
+router.post('/upload', JwtMiddleware(['create']), upload.single('file'), uploadController.uploadAndProcessPdf.bind(uploadController));
+
+// Rota para listar todas as instalações com informações básicas
+router.get('/installations', JwtMiddleware(['read']), installationController.listInstallations.bind(installationController));
+
+// obter dados por numero de instalação
+router.get('/installations/:numero_instalacao', JwtMiddleware(['read']), installationController.getInstallationByNumero.bind(installationController));
 
 export { router as appRoutes };
