@@ -1,22 +1,22 @@
 {
     "development": {
         "dialect": "postgres",
-        "host": "localhost",
-        "username": "oovaz",
+        "host": "f12020v.vps-kinghost.net",
+        "username": "felipevaz",
         "password": "P@ssw0rd",
         "database": "oovaz"
     },
     "test": {
         "dialect": "postgres",
-        "host": "localhost",
-        "username": "oovaz",
+        "host": "f12020v.vps-kinghost.net",
+        "username": "felipevaz",
         "password": "P@ssw0rd",
         "database": "oovaz"
     },
     "production": {
         "dialect": "postgres",
-        "host": "localhost",
-        "username": "oovaz",
+        "host": "f12020v.vps-kinghost.net",
+        "username": "felipevaz",
         "password": "P@ssw0rd",
         "database": "oovaz"
     }
