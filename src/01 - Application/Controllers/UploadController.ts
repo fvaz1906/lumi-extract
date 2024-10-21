@@ -2,8 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
-
-import { PdfProcessingService } from "../../03 - Service/PdfProcessingService";
+import PdfProcessingService from "../../03 - Service/PdfProcessingService";
 
 /**
  * @swagger
@@ -23,7 +22,7 @@ export class UploadController {
      * @swagger
      * /upload:
      *   post:
-     *     summary: Faz o upload de um arquivo PDF, lê seu conteúdo e salva os dados no banco de dados
+     *     summary: Faz o upload de múltiplos arquivos PDF, lê seu conteúdo e salva os dados no banco de dados
      *     tags: [PDF Upload]
      *     consumes:
      *       - multipart/form-data
@@ -34,34 +33,41 @@ export class UploadController {
      *           schema:
      *             type: object
      *             properties:
-     *               file:
-     *                 type: string
-     *                 format: binary
-     *                 description: Arquivo PDF para upload
+     *               files:
+     *                 type: array
+     *                 items:
+     *                   type: string
+     *                   format: binary
+     *                 description: Arquivos PDF para upload
      *     responses:
      *       201:
-     *         description: PDF enviado, lido e processado com sucesso
+     *         description: Todos os PDFs foram enviados e processados com sucesso
      *       400:
-     *         description: Erro no upload ou leitura do PDF
+     *         description: Erro no upload ou leitura dos PDFs
      */
-    public async uploadAndProcessPdf(req: Request, res: Response, next: NextFunction): Promise<void> {
+    public async processPdf(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            if (!req.file) {
+            if (!req.files || !Array.isArray(req.files) || req.files.length === 0) {
                 res.status(400).json({ message: 'Nenhum arquivo enviado.' });
                 return;
             }
 
-            // Caminho do arquivo PDF armazenado
-            const pdfPath = req.file.path;
+            // Iterar sobre cada arquivo recebido
+            for (const file of req.files as Express.Multer.File[]) {
+                const pdfPath = file.path;
 
-            // Ler o arquivo PDF
-            const dataBuffer = fs.readFileSync(pdfPath);
-
-            // Processar o PDF e salvar os dados no banco de dados
-            await this.pdfProcessingService.processAndSavePdf(dataBuffer);
+                try {
+                    // Processar o PDF e salvar os dados no banco de dados
+                    await this.pdfProcessingService.processPdf(pdfPath);
+                } catch (error) {
+                    console.error(`Erro ao processar o arquivo ${file.originalname}:`, error);
+                    // Continuar com o próximo arquivo
+                    continue;
+                }
+            }
 
             // Responder com sucesso
-            res.status(201).json({ message: 'PDF enviado, lido e processado com sucesso.' });
+            res.status(201).json({ message: 'Todos os PDFs foram enviados e processados com sucesso.' });
         } catch (error) {
             next(error);
         }
@@ -96,5 +102,5 @@ const pdfFilter = (req: Request, file: Express.Multer.File, cb: multer.FileFilte
     }
 };
 
-// Middleware de upload configurado para PDFs
-export const upload = multer({ storage, fileFilter: pdfFilter });
+// Middleware de upload configurado para múltiplos PDFs
+export const upload = multer({ storage, fileFilter: pdfFilter }).array('files'); // Permite o upload de múltiplos arquivos

@@ -3,7 +3,6 @@ import { InstallationModel } from "./InstallationModel";
 
 @Table({ tableName: "consumption_history", timestamps: true })
 export class ConsumptionHistoryModel extends Model {
-
     @ForeignKey(() => InstallationModel)
     @Column({
         type: DataType.INTEGER,
@@ -13,26 +12,25 @@ export class ConsumptionHistoryModel extends Model {
 
     @Column({
         type: DataType.STRING,
-        allowNull: true,
-        field: 'mes_ano',
+        allowNull: false,
     })
-    mesAno!: string;
+    mes_ano!: string;
 
     @Column({
         type: DataType.INTEGER,
-        allowNull: true,
+        allowNull: false,
     })
     consumo!: number;
 
     @Column({
         type: DataType.DECIMAL,
-        allowNull: true,
+        allowNull: false,
     })
     media!: number;
 
     @Column({
         type: DataType.INTEGER,
-        allowNull: true,
+        allowNull: false,
     })
     dias!: number;
 

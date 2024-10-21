@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1729468915762" clover="3.2.0">
+  <project timestamp="1729468915762" name="All files">
+    <metrics statements="724" coveredstatements="187" conditionals="136" coveredconditionals="31" methods="123" coveredmethods="32" elements="983" coveredelements="250" complexity="0" loc="724" ncloc="724" packages="10" files="41" classes="41"/>
+    <package name="01 - Application.Controllers">
+      <metrics statements="205" coveredstatements="0" conditionals="34" coveredconditionals="0" methods="29" coveredmethods="0"/>
+      <file name="AuthController.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\01 - Application\Controllers\AuthController.ts">
+        <metrics statements="16" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+      </file>
+      <file name="InstallationController.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\01 - Application\Controllers\InstallationController.ts">
+        <metrics statements="47" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="49" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="111" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="160" count="0" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="164" count="0" type="stmt"/>
+        <line num="169" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="170" count="0" type="stmt"/>
+        <line num="171" count="0" type="stmt"/>
+        <line num="174" count="0" type="stmt"/>
+        <line num="176" count="0" type="stmt"/>
+        <line num="177" count="0" type="stmt"/>
+        <line num="209" count="0" type="stmt"/>
+        <line num="210" count="0" type="stmt"/>
+        <line num="213" count="0" type="stmt"/>
+        <line num="215" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="216" count="0" type="stmt"/>
+        <line num="217" count="0" type="stmt"/>
+        <line num="221" count="0" type="stmt"/>
+        <line num="224" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="225" count="0" type="stmt"/>
+        <line num="226" count="0" type="stmt"/>
+        <line num="230" count="0" type="stmt"/>
+        <line num="232" count="0" type="stmt"/>
+        <line num="233" count="0" type="stmt"/>
+      </file>
+      <file name="ProfileController.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\01 - Application\Controllers\ProfileController.ts">
+        <metrics statements="36" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="99" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+        <line num="146" count="0" type="stmt"/>
+        <line num="147" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="189" count="0" type="stmt"/>
+        <line num="191" count="0" type="stmt"/>
+        <line num="192" count="0" type="stmt"/>
+        <line num="193" count="0" type="stmt"/>
+        <line num="195" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="197" count="0" type="stmt"/>
+        <line num="201" count="0" type="stmt"/>
+        <line num="206" count="0" type="stmt"/>
+        <line num="231" count="0" type="stmt"/>
+        <line num="233" count="0" type="stmt"/>
+        <line num="234" count="0" type="stmt"/>
+        <line num="236" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="238" count="0" type="stmt"/>
+        <line num="242" count="0" type="stmt"/>
+        <line num="247" count="0" type="stmt"/>
+      </file>
+      <file name="UploadController.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\01 - Application\Controllers\UploadController.ts">
+        <metrics statements="30" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="81" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
+      </file>
+      <file name="UserController.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\01 - Application\Controllers\UserController.ts">
+        <metrics statements="40" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="97" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+        <line num="146" count="0" type="stmt"/>
+        <line num="147" count="0" type="stmt"/>
+        <line num="151" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="153" count="0" type="stmt"/>
+        <line num="157" count="0" type="stmt"/>
+        <line num="196" count="0" type="stmt"/>
+        <line num="198" count="0" type="stmt"/>
+        <line num="199" count="0" type="stmt"/>
+        <line num="200" count="0" type="stmt"/>
+        <line num="202" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="204" count="0" type="stmt"/>
+        <line num="208" count="0" type="stmt"/>
+        <line num="214" count="0" type="stmt"/>
+        <line num="239" count="0" type="stmt"/>
+        <line num="241" count="0" type="stmt"/>
+        <line num="242" count="0" type="stmt"/>
+        <line num="244" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="245" count="0" type="stmt"/>
+        <line num="247" count="0" type="stmt"/>
+        <line num="253" count="0" type="stmt"/>
+      </file>
+      <file name="UserProfileController.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\01 - Application\Controllers\UserProfileController.ts">
+        <metrics statements="36" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="91" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="177" count="0" type="stmt"/>
+        <line num="179" count="0" type="stmt"/>
+        <line num="180" count="0" type="stmt"/>
+        <line num="181" count="0" type="stmt"/>
+        <line num="183" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="185" count="0" type="stmt"/>
+        <line num="189" count="0" type="stmt"/>
+        <line num="195" count="0" type="stmt"/>
+        <line num="220" count="0" type="stmt"/>
+        <line num="222" count="0" type="stmt"/>
+        <line num="223" count="0" type="stmt"/>
+        <line num="225" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="227" count="0" type="stmt"/>
+        <line num="231" count="0" type="stmt"/>
+        <line num="236" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="01 - Application.Routes">
+      <metrics statements="40" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="AppRoutes.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\01 - Application\Routes\AppRoutes.ts">
+        <metrics statements="34" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+      </file>
+      <file name="AuthRoutes.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\01 - Application\Routes\AuthRoutes.ts">
+        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="02 - Domain.Entities">
+      <metrics statements="65" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="0"/>
+      <file name="BillingValue.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\02 - Domain\Entities\BillingValue.ts">
+        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+      </file>
+      <file name="ConsumptionHistory.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\02 - Domain\Entities\ConsumptionHistory.ts">
+        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+      </file>
+      <file name="Installation.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\02 - Domain\Entities\Installation.ts">
+        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+      </file>
+      <file name="Invoice.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\02 - Domain\Entities\Invoice.ts">
+        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+      </file>
+      <file name="PaymentInfo.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\02 - Domain\Entities\PaymentInfo.ts">
+        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+      </file>
+      <file name="Profile.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\02 - Domain\Entities\Profile.ts">
+        <metrics statements="4" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+      </file>
+      <file name="TechnicalInfo.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\02 - Domain\Entities\TechnicalInfo.ts">
+        <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+      </file>
+      <file name="User.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\02 - Domain\Entities\User.ts">
+        <metrics statements="8" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+      <file name="UserProfile.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\02 - Domain\Entities\UserProfile.ts">
+        <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="03 - Service">
+      <metrics statements="189" coveredstatements="95" conditionals="64" coveredconditionals="31" methods="34" coveredmethods="14"/>
+      <file name="AuthService.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\03 - Service\AuthService.ts">
+        <metrics statements="23" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+      </file>
+      <file name="PdfDataService.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\03 - Service\PdfDataService.ts">
+        <metrics statements="21" coveredstatements="20" conditionals="9" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="16" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="15" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="45" count="39" type="stmt"/>
+        <line num="55" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="56" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="59" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="62" count="3" type="stmt"/>
+        <line num="70" count="3" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+      </file>
+      <file name="PdfProcessingService.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\03 - Service\PdfProcessingService.ts">
+        <metrics statements="80" coveredstatements="75" conditionals="28" coveredconditionals="24" methods="13" coveredmethods="13"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="46" count="216" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
+        <line num="65" count="216" type="cond" truecount="1" falsecount="0"/>
+        <line num="66" count="3" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
+        <line num="71" count="213" type="cond" truecount="1" falsecount="0"/>
+        <line num="72" count="3" type="stmt"/>
+        <line num="73" count="3" type="stmt"/>
+        <line num="77" count="210" type="cond" truecount="1" falsecount="0"/>
+        <line num="78" count="3" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="80" count="3" type="stmt"/>
+        <line num="84" count="207" type="cond" truecount="1" falsecount="0"/>
+        <line num="85" count="3" type="stmt"/>
+        <line num="86" count="3" type="stmt"/>
+        <line num="87" count="3" type="stmt"/>
+        <line num="91" count="204" type="cond" truecount="1" falsecount="0"/>
+        <line num="92" count="21" type="stmt"/>
+        <line num="95" count="204" type="cond" truecount="1" falsecount="0"/>
+        <line num="96" count="81" type="stmt"/>
+        <line num="100" count="3" type="stmt"/>
+        <line num="106" count="21" type="stmt"/>
+        <line num="107" count="21" type="stmt"/>
+        <line num="109" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="110" count="12" type="stmt"/>
+        <line num="111" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="112" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="113" count="12" type="cond" truecount="3" falsecount="1"/>
+        <line num="115" count="12" type="stmt"/>
+        <line num="122" count="9" type="stmt"/>
+        <line num="123" count="9" type="cond" truecount="1" falsecount="0"/>
+        <line num="124" count="3" type="stmt"/>
+        <line num="134" count="81" type="stmt"/>
+        <line num="135" count="81" type="stmt"/>
+        <line num="137" count="81" type="cond" truecount="1" falsecount="0"/>
+        <line num="138" count="39" type="stmt"/>
+        <line num="149" count="117" type="stmt"/>
+        <line num="150" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="151" count="3" type="stmt"/>
+        <line num="152" count="3" type="stmt"/>
+        <line num="153" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="154" count="3" type="stmt"/>
+        <line num="155" count="3" type="stmt"/>
+        <line num="162" count="3" type="stmt"/>
+        <line num="163" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="164" count="0" type="stmt"/>
+        <line num="166" count="126" type="stmt"/>
+        <line num="167" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="168" count="3" type="stmt"/>
+        <line num="169" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="170" count="3" type="stmt"/>
+        <line num="175" count="90" type="stmt"/>
+        <line num="176" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="177" count="3" type="stmt"/>
+        <line num="178" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="179" count="0" type="stmt"/>
+        <line num="183" count="123" type="stmt"/>
+        <line num="184" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="185" count="3" type="stmt"/>
+        <line num="186" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="187" count="0" type="stmt"/>
+        <line num="193" count="1" type="stmt"/>
+      </file>
+      <file name="ProfileService.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\03 - Service\ProfileService.ts">
+        <metrics statements="18" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+      </file>
+      <file name="UserProfileService.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\03 - Service\UserProfileService.ts">
+        <metrics statements="17" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+      </file>
+      <file name="UserService.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\03 - Service\UserService.ts">
+        <metrics statements="30" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="67" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="71" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="04 - Infrastructure.4.1 - Data.Models">
+      <metrics statements="116" coveredstatements="92" conditionals="0" coveredconditionals="0" methods="20" coveredmethods="18"/>
+      <file name="BillingValueModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\BillingValueModel.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+      </file>
+      <file name="ConsumptionHistoryModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\ConsumptionHistoryModel.ts">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+      </file>
+      <file name="InstallationModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\InstallationModel.ts">
+        <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+      </file>
+      <file name="InvoiceModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\InvoiceModel.ts">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+      </file>
+      <file name="InvoicePdfModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\InvoicePdfModel.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+      <file name="PaymentInfoModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\PaymentInfoModel.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+      <file name="ProfileModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\ProfileModel.ts">
+        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+      </file>
+      <file name="TechnicalInfoModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\TechnicalInfoModel.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+      </file>
+      <file name="UserModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\UserModel.ts">
+        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+      </file>
+      <file name="UserProfileModel.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Models\UserProfileModel.ts">
+        <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="04 - Infrastructure.4.1 - Data.Repository">
+      <metrics statements="47" coveredstatements="0" conditionals="17" coveredconditionals="0" methods="19" coveredmethods="0"/>
+      <file name="ProfileRepository.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Repository\ProfileRepository.ts">
+        <metrics statements="15" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+      </file>
+      <file name="UserProfileRepository.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Repository\UserProfileRepository.ts">
+        <metrics statements="15" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+      </file>
+      <file name="UserRepository.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.1 - Data\Repository\UserRepository.ts">
+        <metrics statements="17" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="04 - Infrastructure.4.2 - CrossCutting.Helpers">
+      <metrics statements="10" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="ExpirationTimeInMilliseconds.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.2 - CrossCutting\Helpers\ExpirationTimeInMilliseconds.ts">
+        <metrics statements="10" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="7" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="04 - Infrastructure.4.2 - CrossCutting.Middlewares">
+      <metrics statements="20" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="JwtMiddleware.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.2 - CrossCutting\Middlewares\JwtMiddleware.ts">
+        <metrics statements="20" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="04 - Infrastructure.4.2 - CrossCutting.Security">
+      <metrics statements="32" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <file name="JwtToken.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.2 - CrossCutting\Security\JwtToken.ts">
+        <metrics statements="16" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+      </file>
+      <file name="PasswordHasher.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.2 - CrossCutting\Security\PasswordHasher.ts">
+        <metrics statements="16" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="38" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="04 - Infrastructure.4.2 - CrossCutting.Types">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="express.d.ts" path="C:\Users\Felipe Vaz\source\repos\Lumi-Extract\src\04 - Infrastructure\4.2 - CrossCutting\Types\express.d.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+  </project>
+</coverage>

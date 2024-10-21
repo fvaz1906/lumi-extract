@@ -18,6 +18,7 @@ import { InstallationModel } from "./src/04 - Infrastructure/4.1 - Data/Models/I
 import { InvoiceModel } from "./src/04 - Infrastructure/4.1 - Data/Models/InvoiceModel";
 import { PaymentInfoModel } from "./src/04 - Infrastructure/4.1 - Data/Models/PaymentInfoModel";
 import { TechnicalInfoModel } from "./src/04 - Infrastructure/4.1 - Data/Models/TechnicalInfoModel";
+import { InvoicePdfModel } from "./src/04 - Infrastructure/4.1 - Data/Models/InvoicePdfModel";
 
 const appsettingsPath = path.resolve(__dirname, 'appsettings.json');
 const appsettings = JSON.parse(fs.readFileSync(appsettingsPath, 'utf-8'));
@@ -44,6 +45,7 @@ const sequelize = new Sequelize({
         InvoiceModel,
         PaymentInfoModel,
         TechnicalInfoModel,
+        InvoicePdfModel
     ],
 });
 

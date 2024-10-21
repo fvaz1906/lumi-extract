@@ -36,12 +36,12 @@ router.put('/profile/:id', JwtMiddleware(['update']), profileController.update.b
 router.delete('/profile/:id', JwtMiddleware(['delete']), profileController.delete.bind(profileController));
 
 // upload
-router.post('/upload', JwtMiddleware(['create']), upload.single('file'), uploadController.uploadAndProcessPdf.bind(uploadController));
+router.post('/upload', JwtMiddleware(['create']), upload, uploadController.processPdf.bind(uploadController));
 
-// Rota para listar todas as instalações com informações básicas
+
 router.get('/installations', JwtMiddleware(['read']), installationController.listInstallations.bind(installationController));
-
-// obter dados por numero de instalação
-router.get('/installations/:numero_instalacao', JwtMiddleware(['read']), installationController.getInstallationByNumero.bind(installationController));
+router.get('/installations/:numero_cliente', JwtMiddleware(['read']), installationController.getInstallationByNumeroCliente.bind(installationController));
+router.get('/installations/faturas/:numero_cliente', JwtMiddleware(['read']), installationController.getInvoicesByClientNumber.bind(installationController));
+router.get('/installations/download/:id', JwtMiddleware(['read']), installationController.downloadInvoiceById.bind(installationController));
 
 export { router as appRoutes };

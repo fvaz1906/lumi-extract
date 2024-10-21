@@ -3,7 +3,6 @@ import { InstallationModel } from "./InstallationModel";
 
 @Table({ tableName: "billing_values", timestamps: true })
 export class BillingValueModel extends Model {
-
     @ForeignKey(() => InstallationModel)
     @Column({
         type: DataType.INTEGER,
@@ -41,11 +40,12 @@ export class BillingValueModel extends Model {
     })
     valor!: number;
 
+    // Novo campo para o mês de referência
     @Column({
-        type: DataType.DECIMAL,
+        type: DataType.STRING,
         allowNull: true,
     })
-    base_calculo!: number;
+    mes_referencia!: string;
 
     @BelongsTo(() => InstallationModel)
     installation!: InstallationModel;

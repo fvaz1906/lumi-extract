@@ -1,210 +1,193 @@
-import { InstallationModel } from "../04 - Infrastructure/4.1 - Data/Models/InstallationModel";
-import { BillingValueModel } from "../04 - Infrastructure/4.1 - Data/Models/BillingValueModel";
-import { ConsumptionHistoryModel } from "../04 - Infrastructure/4.1 - Data/Models/ConsumptionHistoryModel";
-import { PaymentInfoModel } from "../04 - Infrastructure/4.1 - Data/Models/PaymentInfoModel";
-import { InvoiceModel } from "../04 - Infrastructure/4.1 - Data/Models/InvoiceModel";
-import { TechnicalInfoModel } from "../04 - Infrastructure/4.1 - Data/Models/TechnicalInfoModel";
+import fs from 'fs';
+import pdfParse from 'pdf-parse';
 
-import pdfParse from "pdf-parse";
+import PdfDataService from './PdfDataService';
+import path from 'path';
 
+class PdfProcessingService {
 
-export class PdfProcessingService {
+    private pdfDataService: PdfDataService;
 
-    // Método principal para ler, processar e inserir dados no banco de dados
-    public async processAndSavePdf(dataBuffer: Buffer): Promise<void> {
-        // 1. Extrair o texto do PDF
-        const pdfData = await pdfParse(dataBuffer);
-        const pdfContent = pdfData.text;
+    constructor() {
+        this.pdfDataService = new PdfDataService(); // Instancia o serviço
+    }
+    
+    // Método principal para ler e processar o PDF
+    public async processPdf(filePath: string): Promise<any> {
+        try {
+            // Ler o arquivo PDF
+            const dataBuffer = fs.readFileSync(filePath);
 
-        // 2. Organizar os dados do PDF em uma estrutura legível
-        const structuredData = this.organizePdfContent(pdfContent);
+            // Extrair o texto usando pdf-parse
+            const pdfData = await pdfParse(dataBuffer);
+            const pdfContent = pdfData.text;
 
-        console.log(structuredData);
+            // Organizar o conteúdo do PDF em um JSON
+            const structuredData = this.organizePdfContent(pdfContent);
 
-        // 3. Inserir os dados no banco de dados
-        await this.saveToDatabase(structuredData);
+            // Obter o nome do arquivo
+            const fileName = path.basename(filePath);
+
+            // Adicionar o nome do arquivo aos dados estruturados
+            structuredData.fileName = fileName;
+
+            // Enviar dados tratados para o banco de dados
+            await PdfDataService.saveToDatabase(structuredData);
+
+            return structuredData;
+        } catch (error) {
+            console.error('Erro ao processar o PDF:', error);
+            throw error;
+        }
     }
 
-    // Método para organizar o conteúdo do PDF em uma estrutura compreensível
+    // Método para organizar o conteúdo do PDF
     private organizePdfContent(pdfContent: string): any {
-        // Exemplo de organização, ajuste de acordo com seus dados
-        return {
-            numeroInstalacao: this.extractNumeroInstalacao(pdfContent),
-            dadosCliente: this.extractDadosCliente(pdfContent),
-            valoresFaturados: this.extractValoresFaturados(pdfContent),
-            historicoConsumo: this.extractHistoricoConsumo(pdfContent),
-            informacoesPagamento: this.extractInformacoesPagamento(pdfContent),
-            notaFiscal: this.extractNotaFiscal(pdfContent),
-            informacoesTecnicas: this.extractInformacoesTecnicas(pdfContent)
-        };
-    }
-
-    // Métodos de extração de dados específicos
-    private extractNumeroInstalacao(content: string): string {
-        const regex = /Nº DA INSTALAÇÃO\s+(\d+)/;
-        const match = content.match(regex);
-        return match ? match[1] : '';
-    }
-
-    private extractDadosCliente(content: string): any {
-        // Regex para capturar o nome do cliente
-        const nomeRegex = /(?<=Nome|NOME DO CLIENTE|CLIENTE\s*:\s*)([A-Z\s]+)/;
-        const cnpjRegex = /CNPJ\s*:\s*(\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2})/;
-        const ieRegex = /INSCRIÇÃO ESTADUAL\s*:\s*(\d+)/;
-        const enderecoRegex = /RUA\s+([A-Z0-9\s]+),?\s*(.*),?\s*(\d{5}-\d{3}),?\s*([A-Z]{2})/;
-    
-        const nomeMatch = content.match(nomeRegex);
-        const cnpjMatch = content.match(cnpjRegex);
-        const ieMatch = content.match(ieRegex);
-        const enderecoMatch = content.match(enderecoRegex);
-    
-        return {
-            nome: nomeMatch ? nomeMatch[1].trim() : "",
-            cnpj: cnpjMatch ? cnpjMatch[1] : "",
-            inscricaoEstadual: ieMatch ? ieMatch[1] : "",
-            endereco: enderecoMatch ? {
-                logradouro: enderecoMatch[1],
-                bairro: enderecoMatch[2],
-                cidade: "MONTES CLAROS", // Substituir pela captura, se disponível no PDF
-                estado: enderecoMatch[4],
-                cep: enderecoMatch[3]
-            } : {}
-        };
-    }
-
-    private extractValoresFaturados(content: string): any[] {
-        // Regex genérico para capturar itens de faturamento, independente do tipo de item
-        const regex = /([A-Za-z\s]+)\s+kWh\s+(\d+)\s+([\d,.]+)\s+([\d,.]+)\s+([\d,.]+)/g;
-        const matches = Array.from(content.matchAll(regex));
-    
-        return matches.map(match => ({
-            item: match[1].trim(),
-            unidade: "kWh",
-            quantidade: parseInt(match[2]),
-            precoUnitario: parseFloat(match[3].replace(',', '.')),
-            valor: parseFloat(match[4].replace(',', '.')),
-            baseCalculo: parseFloat(match[5])
-        }));
-    }
-    
-    private extractHistoricoConsumo(content: string): any[] {
-        // Regex para capturar o histórico de consumo (mês/ano, consumo, média, dias)
-        const regex = /(\w{3}\/\d{2})\s+(\d+)\s+([\d,.]+)\s+(\d+)/g;
-        const matches = Array.from(content.matchAll(regex));
-    
-        return matches.map(match => ({
-            mesAno: match[1],
-            consumo: parseInt(match[2]),
-            media: parseFloat(match[3].replace(',', '.')),
-            dias: parseInt(match[4])
-        }));
-    }
-    
-    private extractInformacoesPagamento(content: string): any {
-        // Regex genérica para capturar informações de pagamento
-        const regex = /Código de Débito Automático.*?(\d+).*?Vencimento\s*:\s*(\d{2}\/\d{2}\/\d{4}).*?Valor a pagar.*?([\d,.]+)/;
-        const match = content.match(regex);
-    
-        return match ? {
-            codigoDebitoAutomatico: match[1],
-            vencimento: new Date(match[2].split('/').reverse().join('-')), // Converte para formato de data
-            totalPagar: parseFloat(match[3].replace(',', '.'))
-        } : {};
-    }
-    
-    private extractNotaFiscal(content: string): any {
-        // Regex genérica para capturar dados da nota fiscal
-        const regex = /NOTA FISCAL Nº\s+(\d+).*?SÉRIE\s+(\d+).*?Data de emissão\s*:\s*(\d{2}\/\d{2}\/\d{4}).*?chave de acesso\s*:\s*(\d+).*?Protocolo de autorização\s*:\s*(\d+)/;
-        const match = content.match(regex);
-    
-        return match ? {
-            numero: match[1],
-            serie: match[2],
-            dataEmissao: new Date(match[3].split('/').reverse().join('-')),
-            chaveAcesso: match[4],
-            protocoloAutorizacao: match[5]
-        } : {};
-    }
-    
-    private extractInformacoesTecnicas(content: string): any {
-        // Regex genérica para capturar informações técnicas
-        const regex = /Classe\s*:\s*(\w+).*?Subclasse\s*:\s*(\w+).*?Modalidade Tarifária\s*:\s*(\w+).*?Anterior\s*:\s*(\d{2}\/\d{2}).*?Atual\s*:\s*(\d{2}\/\d{2}).*?(\d+)/;
-        const match = content.match(regex);
-    
-        return match ? {
-            classe: match[1],
-            subclasse: match[2],
-            modalidade: match[3],
-            datasLeitura: {
-                anterior: match[4],
-                atual: match[5],
-                dias: parseInt(match[6])
+        const lines = pdfContent.split('\n').map(line => line.trim());
+        const data: any = {
+            valoresFaturados: [],
+            historicoConsumo: [],
+            dadosCliente: {
+                numeroInstalacao: '',
+                numeroCliente: ''
             },
-            consumoEnergia: {
-                consumo: parseInt(match[6])
+            informacoesPagamento: {
+                mesReferencia: '',
+                vencimento: '',
+                totalPagar: ''
             }
-        } : {};
-    }
+        };
 
-    // Método para inserir os dados no banco de dados
-    private async saveToDatabase(data: any): Promise<void> {
-        // Verificar se a instalação já existe pelo número de instalação
-        let installation = await InstallationModel.findOne({
-            where: { numero_instalacao: data.numeroInstalacao }
+        let currentSection = '';
+
+        lines.forEach(line => {
+            // Detectar seção de valores faturados
+            if (line.includes('Valores Faturados')) {
+                currentSection = 'valoresFaturados';
+                return;
+            }
+
+            // Detectar seção de histórico de consumo
+            if (line.includes('Histórico de Consumo')) {
+                currentSection = 'historicoConsumo';
+                return;
+            }
+
+            // Detectar número do cliente e instalação
+            if (line.includes('Nº DO CLIENTE')) {
+                currentSection = 'dadosCliente';
+                this.extractDadosCliente(line, lines, data.dadosCliente);
+                return;
+            }
+
+            // Detectar informações de pagamento
+            if (line.includes('Referente a')) {
+                currentSection = 'informacoesPagamento';
+                this.extractInformacoesPagamento(line, lines, data.informacoesPagamento);
+                return;
+            }
+
+            // Extração de dados com base na seção atual
+            if (currentSection === 'valoresFaturados') {
+                this.extractValoresFaturados(line, data.valoresFaturados);
+            }
+
+            if (currentSection === 'historicoConsumo') {
+                this.extractHistoricoConsumo(line, data.historicoConsumo);
+            }
         });
 
-        if (!installation) {
-            // Criar a instalação no banco de dados se não existir
-            installation = await InstallationModel.create({
-                numero_instalacao: data.numeroInstalacao,
-                cliente_nome: data.dadosCliente.nome,
-                cliente_cnpj: data.dadosCliente.cnpj,
-                cliente_ie: data.dadosCliente.inscricaoEstadual,
-                cliente_endereco: data.dadosCliente.endereco
+        return data;
+    }
+
+    // Extração de valores faturados usando regex
+    private extractValoresFaturados(line: string, valoresFaturados: any[]): void {
+        // Regex para capturar itens de "Valores Faturados"
+        const regex = /(Energia Elétrica|Energia SCEE s\/ ICMS|Energia compensada GD I|Contrib Ilum Publica Municipal)\s*(?:kWh\s+(\d+)\s+([\d,.]+)\s+([-]?[\d,.]+))?/;
+        const match = line.match(regex);
+
+        if (match) {
+            const item = match[1];
+            const quantidade = match[2] ? parseInt(match[2], 10) : null;
+            const precoUnitario = match[3] ? parseFloat(match[3].replace(',', '.')) : null;
+            const valor = match[4] ? parseFloat(match[4].replace(',', '.')) : parseFloat(line.match(/([\d,.]+)$/)?.[1] ?? '0');
+
+            valoresFaturados.push({
+                item,
+                quantidade,
+                precoUnitario,
+                valor
             });
         } else {
-            // Atualizar as informações da instalação existente
-            await installation.update({
-                cliente_nome: data.dadosCliente.nome,
-                cliente_cnpj: data.dadosCliente.cnpj,
-                cliente_ie: data.dadosCliente.inscricaoEstadual,
-                cliente_endereco: data.dadosCliente.endereco
-            });
+            const totalMatch = line.match(/TOTAL\s+([\d,.]+)/);
+            if (totalMatch) {
+                valoresFaturados.push({
+                    item: 'TOTAL',
+                    valor: parseFloat(totalMatch[1].replace(',', '.'))
+                });
+            }
         }
-
-        // Inserir valores faturados
-        for (const valor of data.valoresFaturados) {
-            await BillingValueModel.create({
-                installation_id: installation.id,
-                ...valor
-            });
-        }
-
-        // Inserir histórico de consumo
-        for (const consumo of data.historicoConsumo) {
-            await ConsumptionHistoryModel.create({
-                installation_id: installation.id,
-                ...consumo
-            });
-        }
-
-        // Inserir informações de pagamento
-        await PaymentInfoModel.create({
-            installation_id: installation.id,
-            ...data.informacoesPagamento
-        });
-
-        // Inserir nota fiscal
-        await InvoiceModel.create({
-            installation_id: installation.id,
-            ...data.notaFiscal
-        });
-
-        // Inserir informações técnicas
-        await TechnicalInfoModel.create({
-            installation_id: installation.id,
-            ...data.informacoesTecnicas
-        });
     }
 
+    // Extração do histórico de consumo usando regex
+    private extractHistoricoConsumo(line: string, historicoConsumo: any[]): void {
+        const regex = /(\w{3}\/\d{2})\s+(\d+)\s+([\d,.]+)\s+(\d+)/;
+        const match = line.match(regex);
+
+        if (match) {
+            historicoConsumo.push({
+                mesAno: match[1],
+                consumo: parseInt(match[2], 10),
+                media: parseFloat(match[3].replace(',', '.')),
+                dias: parseInt(match[4], 10)
+            });
+        }
+    }
+
+    // Extração do número do cliente e instalação
+    private extractDadosCliente(line: string, lines: string[], dadosCliente: any): void {
+        const clienteLineIndex = lines.findIndex(l => l.includes('Nº DO CLIENTE'));
+        if (clienteLineIndex !== -1) {
+            const clienteLine = lines[clienteLineIndex + 1];
+            const match = clienteLine.match(/(\d+)\s+(\d+)/);
+            if (match) {
+                dadosCliente.numeroCliente = match[1];
+                dadosCliente.numeroInstalacao = match[2];
+            }
+        }
+    }
+
+    // Extração das informações de pagamento
+    private extractInformacoesPagamento(line: string, lines: string[], informacoesPagamento: any): void {
+        const mesReferenciaMatch = line.match(/Referente a\s+([A-Z]{3}\/\d{4})/);
+        if (mesReferenciaMatch) {
+            informacoesPagamento.mesReferencia = mesReferenciaMatch[1];
+        } else {
+            const referenciaLine = lines.find(l => l.match(/^\s*[A-Z]{3}\/\d{4}/));
+            if (referenciaLine) {
+                const match = referenciaLine.match(/^([A-Z]{3}\/\d{4})/);
+                if (match) {
+                    informacoesPagamento.mesReferencia = match[1];
+                }
+            }
+        }
+
+        const vencimentoLine = lines.find(l => l.includes('Vencimento'));
+        if (vencimentoLine) {
+            const match = vencimentoLine.match(/Vencimento\s+(\d{2}\/\d{2}\/\d{4})/);
+            if (match) {
+                informacoesPagamento.vencimento = match[1];
+            }
+        }
+
+        const totalPagarLine = lines.find(l => l.includes('Valor a pagar'));
+        if (totalPagarLine) {
+            const match = totalPagarLine.match(/Valor a pagar\s+\(R\$\)\s+([\d,.]+)/);
+            if (match) {
+                informacoesPagamento.totalPagar = parseFloat(match[1].replace(',', '.'));
+            }
+        }
+    }
 }
+
+export default PdfProcessingService;
